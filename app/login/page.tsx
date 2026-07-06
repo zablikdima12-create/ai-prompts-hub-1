@@ -8,13 +8,13 @@ export default function LoginPage() {
 
   async function signIn() {
     const { error } =
-      await supabase.auth.signInWithOtp({
-        email,
-        options: {
-          emailRedirectTo:
-            "http://localhost:3000/profile",
-        },
-      });
+    await supabase.auth.signInWithOtp({
+      email,
+      options: {
+        emailRedirectTo:
+          process.env.NEXT_PUBLIC_SITE_URL + "/profile",
+      },
+    });
   
     if (error) {
       console.log(error);
