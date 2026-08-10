@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import CopyButton from "@/components/CopyButton";
+import ReactMarkdown from "react-markdown";
 
 export default function GeneratorPage() {
   const [task, setTask] = useState("");
@@ -133,9 +134,9 @@ export default function GeneratorPage() {
   Модель: {model} • Категория: {category}
 </p>
 
-    <pre className="whitespace-pre-wrap text-slate-300">
-      {result}
-    </pre>
+<div className="prose prose-invert max-w-none text-slate-300">
+  <ReactMarkdown>{result}</ReactMarkdown>
+</div>
     <div className= "mt-6">
         <CopyButton text={result} />
     </div>
