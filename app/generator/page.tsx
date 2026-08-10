@@ -134,8 +134,56 @@ export default function GeneratorPage() {
   Модель: {model} • Категория: {category}
 </p>
 
-<div className="prose prose-invert max-w-none text-slate-300">
-  <ReactMarkdown>{result}</ReactMarkdown>
+<div className="text-slate-300 leading-7">
+  <ReactMarkdown
+    components={{
+      h1: ({ children }) => (
+        <h1 className="text-3xl font-bold text-white mb-4">
+          {children}
+        </h1>
+      ),
+      h2: ({ children }) => (
+        <h2 className="text-2xl font-bold text-white mt-6 mb-3">
+          {children}
+        </h2>
+      ),
+      h3: ({ children }) => (
+        <h3 className="text-xl font-bold text-white mt-5 mb-2">
+          {children}
+        </h3>
+      ),
+      p: ({ children }) => (
+        <p className="mb-4">
+          {children}
+        </p>
+      ),
+      strong: ({ children }) => (
+        <strong className="font-bold text-white">
+          {children}
+        </strong>
+      ),
+      ul: ({ children }) => (
+        <ul className="list-disc pl-6 mb-4 space-y-2">
+          {children}
+        </ul>
+      ),
+      ol: ({ children }) => (
+        <ol className="list-decimal pl-6 mb-4 space-y-2">
+          {children}
+        </ol>
+      ),
+      li: ({ children }) => (
+        <li>{children}</li>
+      ),
+      blockquote: ({ children }) => (
+        <blockquote className="border-l-4 border-blue-500 pl-4 italic text-slate-400 my-4">
+          {children}
+        </blockquote>
+      ),
+    }}
+  >
+    {result}
+  </ReactMarkdown>
 </div>
     <div className= "mt-6">
         <CopyButton text={result} />
