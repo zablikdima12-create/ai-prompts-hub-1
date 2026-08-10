@@ -16,7 +16,7 @@ export async function POST(req: Request) {
         },
         body: JSON.stringify({
           
-model: "openai/gpt-oss-120b:free",
+          model: "openai/gpt-oss-20b:free", 
           messages: [
             {
               role: "system",
